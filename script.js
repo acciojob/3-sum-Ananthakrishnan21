@@ -6,7 +6,7 @@ function threeSum(arr, target) {
   let ans=0
   for(let k=arr.length-1;k>=0;k--){
     let i=0;
-    let j=i+1
+    let j=k-1
     while(i<j && j<k){
       let currentSum=arr[i]+arr[j]+arr[k]
       if(currentSum==target){
@@ -18,14 +18,14 @@ function threeSum(arr, target) {
           sum=currentSum-target
           ans=currentSum
         }
-        break
+        j--
       }
       else{
         if(target-currentSum<sum){
           sum=target-currentSum
           ans=currentSum
         }
-        j++
+        i++
       }
     }
   }
